@@ -47,7 +47,7 @@ namespace MovieServer
                 }
 
                 var features = JsonConvert.DeserializeObject<List<double>>(request.QueryString["features"]);
-                var weights = JsonConvert.DeserializeObject<List<double>>(request.QueryString["results"]);
+                var weights = JsonConvert.DeserializeObject<List<double>>(request.QueryString["weights"]);
 
                 var hs = new HashSet<int>();
                 while (hs.Count() < nresults)
