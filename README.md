@@ -15,7 +15,10 @@ Result: Feature names, then a list of movies. Movies has a crapload of single en
 POST: Params:
 
 nresults: number of results to get. (int)
+
 features: value of each feature in order. (list<double>)
+
 weights: value of weight of each feature in order (list<double>)
+
 
 Result: List of movies, following same schema as get
