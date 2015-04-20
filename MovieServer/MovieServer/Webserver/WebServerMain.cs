@@ -5,8 +5,9 @@ using System.Text;
 using System.Net;
 using System.Web;
 using Newtonsoft.Json;
+using MovieServer.Setup;
 
-namespace MovieServer.Setup
+namespace MovieServer
 {
     class WebServerMain
     {
