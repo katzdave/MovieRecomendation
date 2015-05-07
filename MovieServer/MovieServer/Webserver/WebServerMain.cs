@@ -7,6 +7,7 @@ using System.Web;
 using Newtonsoft.Json;
 using MovieServer.Setup;
 
+
 namespace MovieServer
 {
     class WebServerMain
@@ -41,27 +42,15 @@ namespace MovieServer
                 int nresults;
 
                 Int32.TryParse(request.QueryString["nresults"], out nresults);
-                if (nresults <= 0)
-                {
-                    nresults = 5;
-                }
+                if (nresults <= 0) nresults = 5;
+                if (nresults > 50) nresults = 50; 
 
                 var features = JsonConvert.DeserializeObject<List<double>>(request.QueryString["features"]);
                 var weights = JsonConvert.DeserializeObject<List<double>>(request.QueryString["weights"]);
 
-                var hs = new HashSet<int>();
-                while (hs.Count() < nresults)
-                {
-                    hs.Add(random.Next(0, ds.Movies.Count()));
-                }
+                var knn = ds.GetKnn(nresults, features, weights);
 
-                var movies = new List<Movie>();
-                foreach (var h in hs)
-                {
-                    movies.Add(ds.Movies[h]);
-                }
-
-                return JsonConvert.SerializeObject(movies);
+                return JsonConvert.SerializeObject(knn);
             }
             return "response";
         }

@@ -38,6 +38,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Downloads\Json60r8\Bin\Net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="PowerCollections, Version=1.0.2141.24679, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\PowerCollections.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net" />
@@ -51,9 +55,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\QueryMovie.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Models\DataStore.cs" />
+    <Compile Include="Setup\DataStore.cs" />
     <Compile Include="Setup\SetupMain.cs" />
     <Compile Include="Webserver\WebServerMain.cs" />
     <Compile Include="Webserver\WebServer.cs" />

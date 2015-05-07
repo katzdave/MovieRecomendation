@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Wintellect.PowerCollections;
+using MovieServer.Models;
 
 namespace MovieServer.Setup
 {
@@ -29,6 +31,27 @@ namespace MovieServer.Setup
                     movie.Features.Add(random.NextDouble());
                 }
             }
+        }
+
+        public List<Movie> GetKnn(int k, List<double> features, List<double> weights)
+        {
+            var heap = new OrderedSet<QueryMovie>();
+            var querymovies = new List<QueryMovie>();
+
+            foreach (var movie in Movies)
+            {
+                querymovies.Add(new QueryMovie(features, weights, movie));
+            }
+
+            querymovies.Sort();
+
+            var res = new List<Movie>();
+            foreach (var movie in querymovies.Take(k))
+            {
+                res.Add(movie.movie);
+            }
+
+            return res;
         }
     }
 }
