@@ -38,7 +38,7 @@ namespace MovieServer
 
             foreach (var movie in obj.Movies)
             {
-                if (movie.Title != null)
+                if (movie.Title != null && movie.Poster != null && movie.Poster != "" && movie.Poster != "N/A")
                 {
                     nonull.Add(movie);
                 }
