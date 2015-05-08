@@ -20,7 +20,7 @@ namespace MovieServer
         public WebServerMain(DataStore ds)
         {
             this.ds = ds;
-            ws = new WebServer(SendResponse, "http://localhost:11111/test/");
+            ws = new WebServer(SendResponse, "http://169.254.231.73:11111/test/");
         }
 
         public void Run()
@@ -35,6 +35,10 @@ namespace MovieServer
         {
             if (request.HttpMethod.Equals("GET"))
             {
+                if (request.QueryString["nofeat"] != null)
+                {
+                    return JsonConvert.SerializeObject(ds.Movies);
+                }
                 return JsonConvert.SerializeObject(ds);
             }
             else if (request.HttpMethod.Equals("POST"))
@@ -43,12 +47,28 @@ namespace MovieServer
 
                 Int32.TryParse(request.QueryString["nresults"], out nresults);
                 if (nresults <= 0) nresults = 5;
-                if (nresults > 50) nresults = 50; 
+                if (nresults > 50) nresults = 50;
 
-                var features = JsonConvert.DeserializeObject<List<double>>(request.QueryString["features"]);
-                var weights = JsonConvert.DeserializeObject<List<double>>(request.QueryString["weights"]);
+                var features = request.QueryString["features"].Split(',');
+                var featuresNorm = new List<double>();
+                foreach (var feature in features) {
+                    featuresNorm.Add(Double.Parse(feature));
+                }
 
-                var knn = ds.GetKnn(nresults, features, weights);
+                var weights = request.QueryString["weights"].Split(',');
+                var weightsNorm = new List<double>();
+                double weightSum = 0;
+                foreach (var weight in weights)
+                {
+                    weightSum += Double.Parse(weight);
+                }
+                if (weightSum == 0) return null;
+                foreach (var weight in weights)
+                {
+                    weightsNorm.Add(Double.Parse(weight) / weightSum);
+                }
+
+                var knn = ds.GetKnn(nresults, featuresNorm, weightsNorm);
 
                 return JsonConvert.SerializeObject(knn);
             }
