@@ -20,7 +20,8 @@ namespace MovieServer
         public WebServerMain(DataStore ds)
         {
             this.ds = ds;
-            ws = new WebServer(SendResponse, "http://169.254.231.73:11111/test/");
+            //ws = new WebServer(SendResponse, "http://169.254.231.73:11111/test/");
+            ws = new WebServer(SendResponse, "http://localhost:11111/test/");
         }
 
         public void Run()

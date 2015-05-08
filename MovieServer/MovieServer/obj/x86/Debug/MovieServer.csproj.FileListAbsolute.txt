@@ -16,3 +16,7 @@ C:\Users\david_000\Documents\GitHub\MovieRecomendation\MovieServer\MovieServer\b
 C:\Users\david_000\Documents\GitHub\MovieRecomendation\MovieServer\MovieServer\bin\Debug\MovieServer.pdb
 C:\Users\david_000\Documents\GitHub\MovieRecomendation\MovieServer\MovieServer\bin\Debug\Newtonsoft.Json.dll
 C:\Users\david_000\Documents\GitHub\MovieRecomendation\MovieServer\MovieServer\obj\x86\Debug\MovieServer.csprojResolveAssemblyReference.cache
+C:\Users\david_000\Documents\GitHub\MovieRecomendation\MovieServer\MovieServer\bin\Debug\MovieServer.exe.manifest
+C:\Users\david_000\Documents\GitHub\MovieRecomendation\MovieServer\MovieServer\bin\Debug\MovieServer.application
+C:\Users\david_000\Documents\GitHub\MovieRecomendation\MovieServer\MovieServer\obj\x86\Debug\MovieServer.exe.manifest
+C:\Users\david_000\Documents\GitHub\MovieRecomendation\MovieServer\MovieServer\obj\x86\Debug\MovieServer.application

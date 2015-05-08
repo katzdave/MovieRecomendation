@@ -27,7 +27,7 @@ namespace MovieServer
         public static DataStore LoadDataStore()
         {
             IFormatter formatter = new BinaryFormatter();
-            Stream stream = new FileStream("ImdbDataStore.bin",
+            Stream stream = new FileStream("./ImdbDataStore.bin",
                                       FileMode.Open,
                                       FileAccess.Read,
                                       FileShare.Read);

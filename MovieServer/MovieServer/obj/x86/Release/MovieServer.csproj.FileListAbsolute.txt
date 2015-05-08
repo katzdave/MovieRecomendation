@@ -1,0 +1,10 @@
+C:\Users\david_000\Documents\GitHub\MovieRecomendation\MovieServer\MovieServer\bin\Release\MovieServer.exe.manifest
+C:\Users\david_000\Documents\GitHub\MovieRecomendation\MovieServer\MovieServer\bin\Release\MovieServer.application
+C:\Users\david_000\Documents\GitHub\MovieRecomendation\MovieServer\MovieServer\bin\Release\MovieServer.exe
+C:\Users\david_000\Documents\GitHub\MovieRecomendation\MovieServer\MovieServer\bin\Release\MovieServer.pdb
+C:\Users\david_000\Documents\GitHub\MovieRecomendation\MovieServer\MovieServer\bin\Release\Newtonsoft.Json.dll
+C:\Users\david_000\Documents\GitHub\MovieRecomendation\MovieServer\MovieServer\bin\Release\PowerCollections.dll
+C:\Users\david_000\Documents\GitHub\MovieRecomendation\MovieServer\MovieServer\obj\x86\Release\MovieServer.exe.manifest
+C:\Users\david_000\Documents\GitHub\MovieRecomendation\MovieServer\MovieServer\obj\x86\Release\MovieServer.application
+C:\Users\david_000\Documents\GitHub\MovieRecomendation\MovieServer\MovieServer\obj\x86\Release\MovieServer.exe
+C:\Users\david_000\Documents\GitHub\MovieRecomendation\MovieServer\MovieServer\obj\x86\Release\MovieServer.pdb
