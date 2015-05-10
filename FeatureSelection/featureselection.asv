@@ -1,13 +1,13 @@
 clc; clear all; close all;
 
 moviesFile = fopen('TagGenome/movies.bigdat');
-mov = textscan(moviesFile,'%d\t%s\t%d\n','Delimiter','\t');
+mov = textscan(moviesFile,'%d\t%s\t%f64\n','Delimiter','\t');
 m = [mov{1} mov{3}];
 nm = size(m,1);
 fclose(moviesFile);
 
 tagsFile = fopen('TagGenome/tags.bigdat');
-tag = textscan(tagsFile,'%d\t%s\t%d\n','Delimiter','\t');
+tag = textscan(tagsFile,'%d\t%s\t%f64\n','Delimiter','\t');
 t = [tag{1} tag{3}];
 nt = size(t,1);
 fclose(tagsFile);
@@ -15,41 +15,51 @@ fclose(tagsFile);
 tagsMoviesFile = fopen('TagGenome/tag_relevance.bigdat');
 tagmov = textscan(tagsMoviesFile,'%d\t%d\t%f64\n','Delimiter','\t');
 mt = [tagmov{1} tagmov{2} tagmov{3}];
+mtv = tagmov{3};
+%mtv = zscore(mtv);
 nmt = size(mt,1);
 fclose(tagsMoviesFile);
 
 ids = sortrows(t,2);
 ids = ids(:,1);
 ids = flipud(ids);
-names = tag{2}(ids);
+names = tag{2}(ids+1);
 
-nidscorr = 1;
-corr = zeros(nt,nidscorr+1);
-curvals = zeros(nidscorr,1);
-% activeIdMap = zeros(size(ids,1),1);
-% 
-% for jj = 1:nidscor
-%     activeIdMap(ids(jj)+1) = jj;
-% end
+nidscor = 5;
+corr = zeros(nt,nidscor+1);
+corr(:,1) = t(:,1);
+curvals = zeros(nidscor,1);
 
 for ii = 1:(nmt/nm)
+    ii
+    for jj = 1:nidscor
+        currFeatId = ids(jj);
+        curvals(jj) = mt(ii+currFeatId);
+
+    end
     for kk = 1:nt
         for jj = 1:nidscor
-            currFeatId = ids(jj);
-            curvals(
+           if(ids(jj) == kk-1)
+               continue;
+           end
+           corr(kk,jj+1) = corr(kk,jj+1)...
+               + (curvals(jj) - mtv(ii+kk-1))^2 * double(m(ii,2));
         end
     end
 end
 
-% for jj = 1:nidscor
-%     currFeatId = ids(jj);
-% 
-%     for ii=(currFeatId+1):nm
-%        if(t(ii,1) == currFeatId)
-% 
-%            continue;
-%        end
-% 
-% 
-%     end
-% end
+featnames = tag{2}(ids(1:10)+1);
+feats = rand(nm,10);
+tmp = double(m(:,1));
+feats = [tmp feats];
+
+outp = fopen('outp.txt','w');
+for ii=1:length(feats)
+    fprintf(outp,'%s',featnames(ii));
+end
+fprintf(outp,'\n');
+
+for ii=1:nm
+    fprintf(outp,'%d',feats(ii,1));
+    
+end

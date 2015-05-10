@@ -47,3 +47,26 @@ for ii = 1:(nmt/nm)
         end
     end
 end
+
+featnames = tag{2}(ids(1:10)+1);
+feats = rand(nm,10);
+tmp = double(m(:,1));
+feats = [tmp feats];
+
+outp = fopen('outp.txt','w');
+for ii=1:length(featnames)
+    if(ii < length(featnames))
+        fprintf(outp,'%s~',featnames{ii});
+    else
+        fprintf(outp,'%s\n',featnames{ii});
+    end
+end
+
+for ii=1:nm
+    fprintf(outp,'%d',feats(ii,1));
+    for jj=2:size(feats,2)
+       fprintf(outp,'~%f',feats(ii,jj)); 
+    end
+    fprintf(outp,'\n');
+end
+fclose(outp);
