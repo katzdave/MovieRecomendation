@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MovieServer.exe" size="11264">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MovieServer.exe" size="11776">
       <assemblyIdentity name="MovieServer" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>Q+Cr7LmhMZ6BsLmlt8MB7GqYtsE=</dsig:DigestValue>
+        <dsig:DigestValue>tHWgAf2Ez8PU5eQdb8ErzaHfvNM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

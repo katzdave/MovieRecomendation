@@ -18,7 +18,7 @@ namespace MovieServer
             //SetupMain.main();
 
             DataStore ds = LoadDataStore();
-            ds.GenerateRandomFeatures(10);
+            //ds.GenerateRandomFeatures(10);
 
             var wsm = new WebServerMain(ds);
             wsm.Run();
@@ -45,6 +45,35 @@ namespace MovieServer
             }
 
             obj.Movies = nonull;
+            obj.FeatureNames = new List<string>();
+
+            var lines = System.IO.File.ReadAllLines("features.txt");
+            for (int i = 0; i < lines.Length; i++)
+            {
+                var split = lines[i].Split('~');
+                if (i == 0)
+                {
+                    foreach (var feat in split)
+                    {
+                        obj.FeatureNames.Add(feat);
+                    }
+                }
+                else
+                {
+                    foreach (var movie in obj.Movies)
+                    {
+                        if (movie.Id == Int32.Parse(split[0]))
+                        {
+                            movie.Features = new List<double>();
+                            for (int j = 1; j < split.Length; j++)
+                            {
+                                movie.Features.Add(Double.Parse(split[j]));
+                            }
+                        }
+                    }
+                }
+            }
+            
 
             return obj;
         }
