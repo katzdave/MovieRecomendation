@@ -20,33 +20,33 @@ mtv = tagmov{3};
 nmt = size(mt,1);
 fclose(tagsMoviesFile);
 
-ids = sortrows(t,2);
-ids = ids(:,1);
-ids = flipud(ids);
-names = tag{2}(ids+1);
-
-nidscor = 5;
-corr = zeros(nt,nidscor+1);
-corr(:,1) = t(:,1);
-curvals = zeros(nidscor,1);
-
-for ii = 1:(nmt/nm)
-    ii
-    for jj = 1:nidscor
-        currFeatId = ids(jj);
-        curvals(jj) = mt(ii+currFeatId);
-
-    end
-    for kk = 1:nt
-        for jj = 1:nidscor
-           if(ids(jj) == kk-1)
-               continue;
-           end
-           corr(kk,jj+1) = corr(kk,jj+1)...
-               + (curvals(jj) - mtv(ii+kk-1))^2 * double(m(ii,2));
-        end
-    end
-end
+% ids = sortrows(t,2);
+% ids = ids(:,1);
+% ids = flipud(ids);
+% names = tag{2}(ids+1);
+% 
+% nidscor = 5;
+% corr = zeros(nt,nidscor+1);
+% corr(:,1) = t(:,1);
+% curvals = zeros(nidscor,1);
+% 
+% for ii = 1:(nmt/nm)
+%     ii
+%     for jj = 1:nidscor
+%         currFeatId = ids(jj);
+%         curvals(jj) = mt(ii+currFeatId);
+% 
+%     end
+%     for kk = 1:nt
+%         for jj = 1:nidscor
+%            if(ids(jj) == kk-1)
+%                continue;
+%            end
+%            corr(kk,jj+1) = corr(kk,jj+1)...
+%                + (curvals(jj) - mtv(ii+kk-1))^2 * double(m(ii,2));
+%         end
+%     end
+% end
 
 %% Write features out to csv file
 
@@ -60,7 +60,7 @@ for ii = 1:size(mt,1)
        count = count + 1
     end
 end
-
+%%
 features = zeros(9734,1128);
 
 h = waitbar(0,'Grab a Coffee')
@@ -68,7 +68,7 @@ h = waitbar(0,'Grab a Coffee')
 for ii = 1:size(mt,1) 
     movieId = movieIDs(mt(ii,1));
     tagId = mt(ii,2) + 1;
-    tagW = mt(ii,3); % tag weight/relevance
+    tagW = mtv(ii); % tag weight/relevance
     features(movieId,tagId) = tagW;
     waitbar(ii/size(mt,1),h,sprintf('%f',ii/size(mt,1)))
 end
