@@ -24,6 +24,10 @@ sgdconf = {
     momentum = 0.9
 }
 
+-- if epoch > 160 then
+-- 	sgdconf.learningRate = 1e-4
+-- end	
+
 _, err = optim.nag(feval, parameters, sgdconf)
 
 errTrail[epoch] = err[1]
