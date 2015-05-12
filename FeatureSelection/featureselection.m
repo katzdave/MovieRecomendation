@@ -13,6 +13,8 @@ t = [tag{1} tag{3}];
 nt = size(t,1);
 fclose(tagsFile);
 
+%% Attempt corr experiment
+
 % tagsMoviesFile = fopen('TagGenome/tag_relevance.bigdat');
 % tagmov = textscan(tagsMoviesFile,'%d\t%d\t%f64\n','Delimiter','\t');
 % mt = [tagmov{1} tagmov{2} tagmov{3}];
@@ -54,7 +56,7 @@ fclose(tagsFile);
 f = 10;
 k = 200; % Number of movies in top k
 kdisp = 20; % Number of movies/tags to display
-w = [0 2 1 6 1 .2]; % wtag wnormk wnormover wno_norm varPenalk varPenalOver
+w = [0 2 1 6 2 .2]; % wtag wnormk wnormover wno_norm varPenalk varPenalOver
 
 % wtag: Popularity of tag. Add bias toward popular tags.
 % wnormk: Normalized weight to top k. High discovery of tags unique to class
@@ -71,6 +73,9 @@ featvar = var(M);
 auc = csvread('autoencode/pcTorchMore.csv');
 auc = auc(:,1:f); %eliminate extra row
 auc = (auc + 1) / 2; % -1 -> 1 to 0 -> 1
+auc = auc - repmat(min(auc),nm,1); % shift actual min to zero
+auc = auc ./ repmat(max(auc),nm,1); % scale actual max to 1
+
 tmp = double(mov{1});
 auc = [(1:length(tmp))' tmp auc];
 
@@ -93,8 +98,7 @@ for ii = 3:(f+2)
     topk = m_sort(1:k,1);
     m_names = mov{2}(m_sort(:,1));
     m_feat = M(topk,:);
-    m_feat = m_feat .* repmat(m_sort(1:k,ii),1,nt); %weigh by activation
-    % m_feat_sum = [(1:nt)' (w(1)*sum(m_feat)./featsum + w(2)*mean(m_feat) - w(3)*var(m_feat))'];
+    m_feat = m_feat .* repmat(m_sort(1:k,ii),1,nt); % weigh by activation
     m_feat_sum = [(1:nt)' ...
         ( (w(1)*tag{3}./max(tag{3}))'...
         + w(2)*sum(m_feat)./tags_norm...
@@ -107,11 +111,9 @@ for ii = 3:(f+2)
     ii-2
     t_names(1:kdisp)
     m_names(1:kdisp)
-    
-    %m_feat = 4
 end
 
-% %% Write features out to csv file
+%% Write features matrix out to csv file
 % 
 % movieIDs = containers.Map({0},{0});
 % 
@@ -156,11 +158,6 @@ featnames = {...
 
 auc = sortrows(auc,1);
 feats = auc(:,2:end);
-
-% featnames = tag{2}(ids(1:10)+1);
-% feats = rand(nm,10);
-% tmp = double(m(:,1));
-% feats = [tmp feats];
 
 outp = fopen('outp.txt','w');
 for ii=1:length(featnames)
