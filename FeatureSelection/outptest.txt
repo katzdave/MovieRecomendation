@@ -1,0 +1,431 @@
+
+ans =
+
+     1
+
+
+ans = 
+
+    'good'
+    'original'
+    'happy ending'
+    'family'
+    'great'
+    'heartwarming'
+    'destiny'
+    'love story'
+    'story'
+    'mentor'
+    'sweet'
+    'feel-good'
+    'romantic'
+    'feel good movie'
+    'fun movie'
+
+
+ans = 
+
+    'Ghost (1990)'
+    'Return to Me (2000)'
+    'Sleepless in Seattle (1993)'
+    'Jerry Maguire (1996)'
+    'Lady and the Tramp (1955)'
+    'Marley & Me (2008)'
+    'Little Mermaid, The (1989)'
+    'You've Got Mail (1998)'
+    'Finding Nemo (2003)'
+    'While You Were Sleeping (1995)'
+    'Up (2009)'
+    'We Bought a Zoo (2011)'
+    'Heart and Souls (1993)'
+    'Pretty Woman (1990)'
+    'Just Like Heaven (2005)'
+
+
+ans =
+
+     2
+
+
+ans = 
+
+    'horror'
+    'creepy'
+    'splatter'
+    'cult classic'
+    'gory'
+    'original'
+    'cult film'
+    'gruesome'
+    'weird'
+    'demons'
+    'blood'
+    'grindhouse'
+    'scary'
+    'low budget'
+    'macabre'
+
+
+ans = 
+
+    'City of the Living Dead (a.k.a. Gates of Hell, The) (Paura nella cittÃ  dei morti viventi) (1980)'
+    'Burial Ground (a.k.a. Zombie Horror) (a.k.a. Zombie 3) (Notti del Terrore, Le) (1981)'
+    'House by the Cemetery, The (Quella villa accanto al cimitero) (1981)'
+    'Beyond, The (E tu vivrai nel terrore - L'aldilÃ ) (1981)'
+    'Night of the Demons (1988)'
+    'Monster Club, The (1980)'
+    'Pumpkinhead (1988)'
+    'Blood Feast (1963)'
+    'Martin (1977)'
+    'Hellbound: Hellraiser II (1988)'
+    'Hell Night (1981)'
+    'Convent, The (2000)'
+    'Uzumaki (2000)'
+    'Humanoids from the Deep (1980)'
+    'Horror Hotel (a.k.a. City of the Dead, The) (1960)'
+
+
+ans =
+
+     3
+
+
+ans = 
+
+    'imdb top 250'
+    'story'
+    'original'
+    'great movie'
+    'great'
+    'great ending'
+    'dialogue'
+    'adventure'
+    'good'
+    'storytelling'
+    'mentor'
+    'action'
+    'chase'
+    'original plot'
+    'oscar (best directing)'
+
+
+ans = 
+
+    'Raiders of the Lost Ark (Indiana Jones and the Raiders of the Lost Ark) (1981)'
+    'Star Wars: Episode IV - A New Hope (1977)'
+    'Star Wars: Episode V - The Empire Strikes Back (1980)'
+    'Indiana Jones and the Last Crusade (1989)'
+    'Ghostbusters (a.k.a. Ghost Busters) (1984)'
+    'Terminator, The (1984)'
+    'Jurassic Park (1993)'
+    'Lord of the Rings: The Return of the King, The (2003)'
+    'Incredibles, The (2004)'
+    'Great Escape, The (1963)'
+    'Ben-Hur (1959)'
+    'Star Wars: Episode VI - Return of the Jedi (1983)'
+    'Braveheart (1995)'
+    'Toy Story (1995)'
+    'Lord of the Rings: The Fellowship of the Ring, The (2001)'
+
+
+ans =
+
+     4
+
+
+ans = 
+
+    'original'
+    'storytelling'
+    'complicated'
+    'imdb top 250'
+    'complex'
+    'interesting'
+    'great ending'
+    'twists & turns'
+    'great acting'
+    'twist'
+    'dark'
+    'suspense'
+    'clever'
+    'enigmatic'
+    'plot twist'
+
+
+ans = 
+
+    'Memento (2000)'
+    'Seven (a.k.a. Se7en) (1995)'
+    'Machinist, The (Maquinista, El) (2004)'
+    'Usual Suspects, The (1995)'
+    'Blood Simple (1984)'
+    'Following (1998)'
+    'Oldboy (2003)'
+    'Chinatown (1974)'
+    'Looper (2012)'
+    'Dark City (1998)'
+    'Sin City (2005)'
+    'Conversation, The (1974)'
+    'Reservoir Dogs (1992)'
+    'Donnie Darko (2001)'
+    'Touch of Evil (1958)'
+
+
+ans =
+
+     5
+
+
+ans = 
+
+    'original'
+    'good soundtrack'
+    'cult classic'
+    'quotable'
+    'social commentary'
+    'great ending'
+    'storytelling'
+    'imdb top 250'
+    'dialogue'
+    'mentor'
+    'drinking'
+    'highly quotable'
+    'funny'
+    'clever'
+    'cult film'
+
+
+ans = 
+
+    'Heathers (1989)'
+    'Superbad (2007)'
+    'Donnie Darko (2001)'
+    'Fast Times at Ridgemont High (1982)'
+    'Fight Club (1999)'
+    'American Pie (1999)'
+    'Tucker & Dale vs Evil (2010)'
+    'Animal House (1978)'
+    'American Beauty (1999)'
+    'Better Off Dead... (1985)'
+    'Monty Python and the Holy Grail (1975)'
+    'One Flew Over the Cuckoo's Nest (1975)'
+    'Ferris Bueller's Day Off (1986)'
+    'Shaun of the Dead (2004)'
+    'Cabin in the Woods, The (2012)'
+
+
+ans =
+
+     6
+
+
+ans = 
+
+    'original'
+    'suspense'
+    'tense'
+    'psychological'
+    'great ending'
+    'atmospheric'
+    'disturbing'
+    'brutality'
+    'visceral'
+    'cinematography'
+    'suspenseful'
+    'violent'
+    'violence'
+    'good soundtrack'
+    'storytelling'
+
+
+ans = 
+
+    'Other, The (1972)'
+    'Silence of the Lambs, The (1991)'
+    'Exorcist, The (1973)'
+    'Others, The (2001)'
+    'Pianist, The (2002)'
+    'Rosemary's Baby (1968)'
+    'Omen, The (1976)'
+    'Shining, The (1980)'
+    'Schindler's List (1993)'
+    'Legend of Hell House, The (1973)'
+    'Witchfinder General (Conquerer Worm, The) (1968)'
+    'Session 9 (2001)'
+    'Changeling, The (1980)'
+    'Exorcism of Emily Rose, The (2005)'
+    'Psycho (1960)'
+
+
+ans =
+
+     7
+
+
+ans = 
+
+    'criterion'
+    'masterpiece'
+    'reflective'
+    'intimate'
+    'melancholic'
+    'golden palm'
+    'enigmatic'
+    'bleak'
+    'loneliness'
+    'talky'
+    'downbeat'
+    'meditative'
+    'melancholy'
+    'imdb top 250'
+    'poignant'
+
+
+ans = 
+
+    'Ikiru (1952)'
+    'Wild Strawberries (SmultronstÃ¤llet) (1957)'
+    'Stroszek (1977)'
+    'Cries and Whispers (Viskningar och rop) (1972)'
+    'Tokyo Story (TÃ´kyÃ´ monogatari) (1953)'
+    'Accattone (1961)'
+    'Early Summer (BakushÃ») (1951)'
+    'Atalante, L' (1934)'
+    'Vivre sa vie: Film en douze tableaux (My Life to Live) (1962)'
+    'Strada, La (1954)'
+    'Silence, The (Tystnaden) (1963)'
+    'Eclisse, L' (Eclipse) (1962)'
+    '400 Blows, The (Les quatre cents coups) (1959)'
+    'Late Spring (Banshun) (1949)'
+    'Ugetsu (Ugetsu monogatari) (1953)'
+
+
+ans =
+
+     8
+
+
+ans = 
+
+    'visually appealing'
+    'visually stunning'
+    'visual'
+    'storytelling'
+    'original'
+    'cerebral'
+    'imagination'
+    'cinematography'
+    'weird'
+    'story'
+    'technology'
+    'stunning'
+    'complex'
+    'imdb top 250'
+    'great ending'
+
+
+ans = 
+
+    'WALLÂ·E (2008)'
+    'Eternal Sunshine of the Spotless Mind (2004)'
+    'Avatar (2009)'
+    'Fountain, The (2006)'
+    'Contact (1997)'
+    'Close Encounters of the Third Kind (1977)'
+    'Amelie (Fabuleux destin d'AmÃ©lie Poulain, Le) (2001)'
+    'Gattaca (1997)'
+    'Her (2013)'
+    'Oblivion (2013)'
+    'Beauty and the Beast (La belle et la bÃªte) (1946)'
+    'Mr. Nobody (2009)'
+    'A.I. Artificial Intelligence (2001)'
+    'Abyss, The (1989)'
+    'City of Lost Children, The (CitÃ© des enfants perdus, La) (1995)'
+
+
+ans =
+
+     9
+
+
+ans = 
+
+    'original'
+    'storytelling'
+    'cerebral'
+    'visually appealing'
+    'complex'
+    'weird'
+    'thought-provoking'
+    'interesting'
+    'existentialism'
+    'philosophy'
+    'visually stunning'
+    'social commentary'
+    'visual'
+    'great ending'
+    'good soundtrack'
+
+
+ans = 
+
+    'Moon (2009)'
+    'Sunshine (2007)'
+    '21 Grams (2003)'
+    'Oblivion (2013)'
+    'Matrix, The (1999)'
+    'Elysium (2013)'
+    'District 9 (2009)'
+    'Weather Man, The (2005)'
+    'Man from Earth, The (2007)'
+    'Magnolia (1999)'
+    'Twelve Monkeys (a.k.a. 12 Monkeys) (1995)'
+    'Gravity (2013)'
+    'Requiem for a Dream (2000)'
+    'Donnie Darko (2001)'
+    'Gattaca (1997)'
+
+
+ans =
+
+    10
+
+
+ans = 
+
+    'drama'
+    'great acting'
+    'original'
+    'excellent script'
+    'mentor'
+    'good soundtrack'
+    'oscar (best directing)'
+    'storytelling'
+    'realistic'
+    'intense'
+    'imdb top 250'
+    'good'
+    'emotional'
+    'great ending'
+    'friendship'
+
+
+ans = 
+
+    'Perks of Being a Wallflower, The (2012)'
+    'Braveheart (1995)'
+    'City of God (Cidade de Deus) (2002)'
+    'Million Dollar Baby (2004)'
+    'Slumdog Millionaire (2008)'
+    'Wrestler, The (2008)'
+    'Saving Private Ryan (1998)'
+    'Dead Poets Society (1989)'
+    'Show Me Love (Fucking Ã…mÃ¥l) (1998)'
+    'Boyz N the Hood (1991)'
+    'Mud (2012)'
+    'Warrior (2011)'
+    'Summer Storm (Sommersturm) (2004)'
+    'This Is England (2006)'
+    'Schindler's List (1993)'
+
+>> 
