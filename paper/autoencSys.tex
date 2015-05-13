@@ -1,0 +1,15 @@
+The autoencoder we created to perform the dimensionality reduction encodes a
+length 1128 vector down to length 10 code. This is performed with a single
+hidden-layer encoder and a single-hidden layer decoder. All of the neurons are
+hyperbolic tangent neurons. These were selected over sigmoidal neurons because
+their derivatives are symmetric around zero and therefore they learn their
+parameters more quickly \cite{sibi2013analysis}. The encoding and decoding
+stages shared the same number of neurons in each layer. Both stages were
+constructed from two layers consisting of 1128 neurons and one layer
+consisting  of 10 neurons. (This accounting includes the unweighted input neurons for both the encoder and decoder.)
+
+We implemented and trained the present autoencoder with the Torch 7
+\cite{collobert2011torch7} framework; the computation was accelerated through
+the use of an Nvidia Tesla K40. We selected the mean squared reconstruction
+error as our criterion and used Nesterov accelerated gradient descent
+\cite{nesterov2007gradient} to optimize it.
