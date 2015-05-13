@@ -62,8 +62,25 @@ determined by user input. We work with the dataset created by Vig et al.
 \subsection{Recommendations}
 \input{nnSys}
 
-\section{Results}
-No real metric exists other than user engagement.
+\section{Results} \begin{figure} \centering
+\includegraphics[width=\linewidth]{error.pdf} 
+\caption{ Reconstruction error versus number of training epochs of the
+autoencoder. The reconstruction error is measured as the MSE between the
+original high-dimensional vector and the the approximate high-dimensional
+vector decoded by the decoder from the low- dimensional code. Each epoch
+consists of ten thousand example exposures to the network. This network
+converges at an MSE of about 80.}
+\label{error} 
+\end{figure}
+
+While it is difficult to quantitatively measure the quality of the
+recommendations, aside from explicit user feedback on them, we are able to
+measure the performance of the autoencoder network. In Figure \ref{error} we
+see the usual type of training curve for a neural network with the error
+decreasing and then reach a steady bottom. Ideally this curve would get
+significantly closer to zero, but considering the number of dimensions in the
+reconstructed space compared to the reduced space, the performance of 80 MSE
+is impressive. The apparent quality of recommendations confirm the good performance of the autoencoder.
 
 We keep logs of all of the queries performed.  These logs of real user data could serve as a valuable dataset for maximizing the efficiency of an ANN index.
 
