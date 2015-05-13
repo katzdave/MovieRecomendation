@@ -1,18 +1,17 @@
 \documentclass[conference]{IEEEtran}
-%\usepackage{cite}
+\usepackage{cite}
 \ifCLASSINFOpdf
    \usepackage[pdftex]{graphicx}
  \fi
 \usepackage[cmex10]{amsmath}
 \usepackage{tikz}
-\usepackage{cite}
+\usepackage{hyperref}
 \usepackage{caption} 
 \captionsetup[table]{skip=10pt}
 \usetikzlibrary{matrix,chains,positioning,decorations.pathreplacing,arrows}
 \usepackage{amsmath}
 \usepackage{float}
 \usepackage{booktabs}
-% \counterwithin{paragraph}{subsection} 
 \IEEEoverridecommandlockouts
 %s\hyphenation{op-tical net-works semi-conduc-tor}
 \title{Movie Recommendations Using \\ Low-dimensional Codes}
@@ -24,18 +23,29 @@ Electrical Engineering
 }
 \begin{document}
 \maketitle
-
+\global\csname @topnum\endcsname 0
+\global\csname @botnum\endcsname 0
 \begin{abstract} 
 
-We present a movie recomendation system that finds a weighted set of nearest
-neigbors to an arbitray desired movie based on user specified interests in a
+We present a movie recommendation system that finds a weighted set of nearest
+neighbors to an arbitrary desired movie based on user specified interests in a
 latent space learned by an autoencoder. We learn a low-dimensional
-representation to make recomendentions in from a much larger feature space
+representation to make recommendations in from a much larger feature space
 consisting of approximately one thousand tags and their relevancies to about
 ten thousand movies. 
 
-\end{abstract}
-\section{Introduction}
+\end{abstract} 
+\section{Introduction} 
+
+Movie recommendation is complex task that generally involves high dimensional
+feature spaces; a common approach today is the collaborative filtering
+approach \cite{ekstrand2011collaborative,good1999combining,koren2009matrix}.
+The collaborative filtering approach is powerful because successfully reduces
+a complex high-dimensional feature space into a rich low-dimensional latent
+space. We aim to present an alternative approach to generating a rich low-dimensional latent space capable of producing high quality movie
+recommendations based on nearest neighbor approach where the queried sample is
+determined by user input. We work with the dataset created by Vig et al.
+\cite{vig2012tag}. This dataset provides a approximately ten thousand movies each with relevance weightings for approximately one thousand tags.
 
 \subsection{Autoencoders}
 \input{autoencIntro}
