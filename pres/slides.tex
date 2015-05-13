@@ -1,6 +1,6 @@
 \documentclass{beamer}
 \usepackage{graphicx}
-\usepackage{mathtools}
+%\usepackage{mathtools}
 \usepackage{tikz}
 \usetikzlibrary{matrix,chains,positioning,decorations.pathreplacing,arrows}
 
@@ -32,6 +32,7 @@ Tag Genome dataset provied by grouplens
 \begin{itemize}
 \item 10,000 movies
 \item 1,000 tags
+\item relevance of each tag to each movie
 \end{itemize}
 \end{frame}
 
@@ -65,7 +66,23 @@ Tag Genome dataset provied by grouplens
 \end{frame}
 
 \begin{frame}{Nearest Neighbors}
+\begin{itemize}
+\item Select the top movies to recommend via nearest neighbors
+\item Use modified distance metric which lets users specify feature relevance
+\end{itemize}
+\begin{equation}
+distance(x,y,v) = \sqrt{\sum\limits_{i=1}^D ((x_i - y_i) \times v_i \times D)^2} 
+\end{equation}
+\end{frame}
 
+\begin{frame}{Approximate Nearest Neighbors}
+\begin{itemize}
+\item A linear search is expensive on a large dataset with many users
+\item No algorithm can find exact nearest neighbors in sub-linear time for high dimensional vector spaces
+\item ANN indexes can return a high quality results from only examining a small percentage of the search space
+\item Problem: Conventional ANN indexes are not adaptable to query specified dimension relevance
+\item Solution: An Efficient Index for Computation of Approximate Nearest Neighbors with Query Specified Dimension Relevance Weights
+\end{itemize}
 \end{frame}
 
 \begin{frame}{Performance}
@@ -73,7 +90,6 @@ Difficult to evaluate without explicit user feedback
 \end{frame}
 
 \begin{frame}{Demo}
-Link or something
 \end{frame}
 
 \begin{frame}
