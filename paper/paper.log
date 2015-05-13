@@ -798,4 +798,43 @@ LaTeX Info: Redefining \nameref on input line 24.
 (C:\Users\david_000\Documents\GitHub\MovieRecomendation\paper\paper.out)
 \@outlinefile=\write4
 Package caption Info: Begin \AtBeginDocument code.
-Package caption Info: float package is loaded
+Package caption Info: float package is loaded.
+Package caption Info: End \AtBeginDocument code.
+
+(C:\Users\david_000\Documents\GitHub\MovieRecomendation\paper\autoencIntro.tex
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 13.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 13.
+) (C:\Users\david_000\Documents\GitHub\MovieRecomendation\paper\nnIntro.tex)
+[1{C:/Users/david_000/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
+
+
+]
+(C:\Users\david_000\Documents\GitHub\MovieRecomendation\paper\autoencSys.tex)
+(C:\Users\david_000\Documents\GitHub\MovieRecomendation\paper\featuretagSys.tex
+)
+
+! LaTeX Error: File `interfaceSys.tex' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: tex)
+
+Enter file name: 
+! Emergency stop.
+<read *> 
+         
+l.61 \input{interfaceSys}
+                         
+End of file on the terminal!
+
+ 
+Here is how much of TeX's memory you used:
+ 18369 strings out of 493921
+ 362869 string characters out of 3144863
+ 411399 words of memory out of 3000000
+ 21357 multiletter control sequences out of 15000+200000
+ 33934 words of font info for 65 fonts, out of 3000000 for 9000
+ 841 hyphenation exceptions out of 8191
+ 55i,8n,69p,690b,315s stack positions out of 5000i,500n,10000p,200000b,50000s
+!  ==> Fatal error occurred, no output PDF file produced!
