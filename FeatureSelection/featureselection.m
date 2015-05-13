@@ -76,6 +76,10 @@ auc = (auc + 1) / 2; % -1 -> 1 to 0 -> 1
 auc = auc - repmat(min(auc),nm,1); % shift actual min to zero
 auc = auc ./ repmat(max(auc),nm,1); % scale actual max to 1
 
+% [U,~,~] = svd(M,0);
+% U = U(:,1:10);
+% auc = U;
+
 tmp = double(mov{1});
 auc = [(1:length(tmp))' tmp auc];
 
