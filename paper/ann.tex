@@ -1,0 +1,60 @@
+\begin{tikzpicture}[
+plain/.style={
+  draw=none,
+  fill=none,
+  },
+net/.style={
+  matrix of nodes,
+  nodes={
+    draw,
+    circle,
+    inner sep=5pt
+    },
+  nodes in empty cells,
+  column sep=-0.5cm,
+  row sep=-5pt
+  },
+>=latex
+]
+\matrix[net] (mat)
+{
+|[plain]| \parbox{1.3cm}{\centering \hfill} & |[plain]| \parbox{1.3cm}{Encode} & |[plain]| \parbox{1.3cm}{\centering \hfill}  & |[plain]| \parbox{1.3cm}{\raggedleft Decode} & |[plain]| \parbox{1.3cm}{\centering \hfill} \\
+& & |[plain]| & & &|[plain]|\\
+|[plain]| & |[plain]|& & |[plain]|\\
+& &|[plain]| & & &|[plain]|\\
+|[plain]| & |[plain]| \\
+&& & & &|[plain]|\\
+|[plain]| &|[plain]|& |[plain]| \\
+& & |[plain]| & & &|[plain]|\\
+|[plain]|&|[plain]| & & |[plain]|\\
+& & |[plain]| & & &|[plain]|\\
+};
+\foreach \ai [count=\mi ]in {2,4,...,11}
+  \draw[<-] (mat-\ai-1) -- node[above] {$x_\mi$} +(-2cm,0);
+
+% Middle lines  
+\foreach \ai in {2,4,...,10}
+{\foreach \aii in {2,4,8,10}
+  \draw[->] (mat-\ai-1) -- (mat-\aii-2);
+}
+
+\foreach \ai in {2,4,...,10}
+{\foreach \aii in {3,6,9}
+  \draw[->] (mat-\ai-2) -- (mat-\aii-3);
+}
+% last three lines
+\foreach \ai in {2,4,6,8,10}
+{
+\foreach \aii in {3,6,9}
+  \draw[->] (mat-\aii-3) -- (mat-\ai-4);
+}
+
+\foreach \ai in {2,4,...,10}
+{\foreach \aii in {2,4,8,10}
+  \draw[->] (mat-\ai-4) -- (mat-\aii-5);
+}
+
+
+\foreach \ai [count=\mi ]in {2,4,...,11}
+  \draw[->] (mat-\ai-5) -- node[above] {$y_\mi$} +(2cm,0);
+\end{tikzpicture}
