@@ -1,0 +1,82 @@
+\documentclass{beamer}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usetikzlibrary{matrix,chains,positioning,decorations.pathreplacing,arrows}
+
+\title{Movie Recommendations Using Low-dimensional Codes and User Specified Feature Relevance}
+\author{Chris Curro, David Katz, Harrison Zhao} 
+\date{May 2015}
+
+\setbeamertemplate{itemize items}[circle]
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Goal}
+% An approach to generating a rich low-dimensional latent space capable of
+% producing high quality movie recommendations based on a nearest neighbors
+% where the queried sample is determined by user input.
+\begin{itemize}
+\item Rich low-dimensional latent space
+\item High quality movie recomendations based on nearest neighbors
+\item User input on the reocomendation
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Dataset}
+Tag Genome dataset provied by grouplens
+\begin{itemize}
+\item 10,000 movies
+\item 1,000 tags
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Approach}
+\begin{itemize}
+\item Autoencoders for nonlinear PCA
+\item Nearest neighbors with weighted features
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Autoencoders}
+\begin{equation}
+\mathbf{y} = f\left(W\mathbf{x} + \mathbf{b}\right)
+\end{equation}
+\begin{center}
+\input{ann.tex}
+\end{center}
+\end{frame}
+
+\begin{frame}{Autoencoders}
+\begin{itemize}
+\item Map 1128 feature space onto a 10 dimensional space
+\item Single hidden layer encoder and decoder
+\item Hyperbolic tangent neurons
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Autoencoders}
+\centering
+\includegraphics[width=0.8\linewidth]{../paper/error.pdf}
+\end{frame}
+
+\begin{frame}{Nearest Neighbors}
+
+\end{frame}
+
+\begin{frame}{Performance}
+Difficult to evaluate without explicit user feedback
+\end{frame}
+
+\begin{frame}{Demo}
+Link or something
+\end{frame}
+
+\begin{frame}
+\titlepage
+\end{frame}
+\end{document}

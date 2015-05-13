@@ -1,4 +1,4 @@
-f1~f2~f3~f4~f5~f6~f7~f8~f9~f10
+For the sentimentalist in you~Low bduget camp of horror~Epic action adventure!~Complicated, dark and thrilling~Lots of laughs at societies expense~Prepare to be disturbed~Foreign cinema snobs only~Relationships and the unknown world~Provocative alternative dystopias~Grounded in reality
 1~0.921249~0.489227~0.925558~0.502806~0.473428~0.234609~0.524002~0.695445~0.503208~0.531524
 2~0.777877~0.717344~0.774049~0.286635~0.278790~0.465198~0.226831~0.702920~0.499460~0.376568
 3~0.646564~0.622659~0.423534~0.260609~0.293893~0.298335~0.427862~0.396993~0.316645~0.387630

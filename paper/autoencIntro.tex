@@ -1,6 +1,6 @@
 \begin{figure}
 \centering
-%\input{ann.tex}
+\input{ann.tex}
 \caption{
 A simple autoencoder with a two layer encoder/decoder pair. This autoencoder
 would code a five dimensional space into a three dimensional space. Each neuron represents a weighted sum passed through an activation function.
@@ -8,7 +8,7 @@ would code a five dimensional space into a three dimensional space. Each neuron 
 \label{autoenc}
 \end{figure}
 
-An autoencoder is particular type of neural network. A neural network is a computational graph where nodes can be
+An autoencoder is a particular type of neural network. A neural network is a computational graph where nodes can be
 defined in the form: 
 \begin{equation}
 \mathbf{y} = f\left(W\mathbf{x} + \mathbf{b}\right)
@@ -25,7 +25,7 @@ networks are generally referred to as layers, and can be represented
 diagrammatically as in Figure \ref{autoenc}. 
 
 Figure \ref{autoenc} in particular shows an autoencoder. Unlike an ordinary
-neural network the network contains a bottleneck in the middle. It is this
+neural network an autoencoder contains a bottleneck in the middle. It is this
 bottleneck that creates the rich dimensionality reduction power of an
 autoencoder. This bottleneck essentially splits the network into two stages:
 the encoder stage and the decoder stage. We interpret the autoencoder as

@@ -13,6 +13,8 @@ t = [tag{1} tag{3}];
 nt = size(t,1);
 fclose(tagsFile);
 
+%% Attempt corr experiment
+
 % tagsMoviesFile = fopen('TagGenome/tag_relevance.bigdat');
 % tagmov = textscan(tagsMoviesFile,'%d\t%d\t%f64\n','Delimiter','\t');
 % mt = [tagmov{1} tagmov{2} tagmov{3}];
@@ -49,24 +51,35 @@ fclose(tagsFile);
 %     end
 % end
 
-%% Attempt some magic
+%% Attempt some magic feature selection
+
 f = 10;
-k = 80; % Number of movies in top k
-w = [0 2 5 1]; % wtag wnormk wnormover wno_norm varPenal
+k = 200; % Number of movies in top k
+kdisp = 20; % Number of movies/tags to display
+w = [0 2 1 6 2 .2]; % wtag wnormk wnormover wno_norm varPenalk varPenalOver
 
 % wtag: Popularity of tag. Add bias toward popular tags.
 % wnormk: Normalized weight to top k. High discovery of tags unique to class
-% wnormover: Normalized weight to top k
+% wnormover: Normalized weight to top k. Some bias to tags like 'original'
 % wno_norm: Actual weight. Inherantly biased towards popular tags
-% varPenal: Penalize tags with high variance.
+% varPenalk: Penalize tags with high variance within top k.
 %   ex: star-wars, indian-jones, pixar etc..
+% varPenalOver: Penalize tags with high variance overall.
 
 M = csvread('TagGenome/features.csv');
 featsum = sum(M);
+featvar = var(M);
 
 auc = csvread('autoencode/pcTorchMore.csv');
 auc = auc(:,1:f); %eliminate extra row
 auc = (auc + 1) / 2; % -1 -> 1 to 0 -> 1
+auc = auc - repmat(min(auc),nm,1); % shift actual min to zero
+auc = auc ./ repmat(max(auc),nm,1); % scale actual max to 1
+
+% [U,~,~] = svd(M,0);
+% U = U(:,1:10);
+% auc = U;
+
 tmp = double(mov{1});
 auc = [(1:length(tmp))' tmp auc];
 
@@ -89,36 +102,22 @@ for ii = 3:(f+2)
     topk = m_sort(1:k,1);
     m_names = mov{2}(m_sort(:,1));
     m_feat = M(topk,:);
-    m_feat = m_feat .* repmat(m_sort(1:k,ii),1,nt); %weigh by activation
-    % m_feat_sum = [(1:nt)' (w(1)*sum(m_feat)./featsum + w(2)*mean(m_feat) - w(3)*var(m_feat))'];
+    m_feat = m_feat .* repmat(m_sort(1:k,ii),1,nt); % weigh by activation
     m_feat_sum = [(1:nt)' ...
         ( (w(1)*tag{3}./max(tag{3}))'...
-        + w(2)*sum(m_feat)./featsum...
-        + w(3)*mean(m_feat)...
-        - w(4)*var(m_feat))'];
+        + w(2)*sum(m_feat)./tags_norm...
+        + w(3)*sum(m_feat)./featsum...
+        + w(4)*mean(m_feat)...
+        - w(5)*var(m_feat)...
+        - w(6)*featvar)'];
     t_sort = flipud(sortrows(m_feat_sum,2));
     t_names = tag{2}(t_sort(:,1));
     ii-2
-    t_names(1:20)
-    m_names(1:20)
-    
-    %m_feat = 4
+    t_names(1:kdisp)
+    m_names(1:kdisp)
 end
 
-featnames = {...
-    'family friendly',...
-    'boring'...
-    'family friendly',...
-    'family friendly',...
-    'family friendly',...
-    'family friendly',...
-    'family friendly',...
-    'family friendly',...
-    'family friendly',...
-    'family friendly'...
-    };
-
-% %% Write features out to csv file
+%% Write features matrix out to csv file
 % 
 % movieIDs = containers.Map({0},{0});
 % 
@@ -146,27 +145,38 @@ featnames = {...
 % clearvars -except features
 % csvwrite('features.csv',features)
 
-%%
+%% Output for the server
 
-% featnames = tag{2}(ids(1:10)+1);
-% feats = rand(nm,10);
-% tmp = double(m(:,1));
-% feats = [tmp feats];
-% 
-% outp = fopen('outp.txt','w');
-% for ii=1:length(featnames)
-%     if(ii < length(featnames))
-%         fprintf(outp,'%s~',featnames{ii});
-%     else
-%         fprintf(outp,'%s\n',featnames{ii});
-%     end
-% end
-% 
-% for ii=1:nm
-%     fprintf(outp,'%d',feats(ii,1));
-%     for jj=2:size(feats,2)
-%        fprintf(outp,'~%f',feats(ii,jj)); 
-%     end
-%     fprintf(outp,'\n');
-% end
-% fclose(outp);
+featnames = {...
+    'For the sentimentalist in you',...
+    'Low bduget camp of horror'...
+    'Epic action adventure!',...
+    'Complicated, dark and thrilling',...
+    'Lots of laughs at societies expense',...
+    '',...
+    'f7',...
+    'f8',...
+    'f9',...
+    'f10'...
+    };
+
+auc = sortrows(auc,1);
+feats = auc(:,2:end);
+
+outp = fopen('outp.txt','w');
+for ii=1:length(featnames)
+    if(ii < length(featnames))
+        fprintf(outp,'%s~',featnames{ii});
+    else
+        fprintf(outp,'%s\n',featnames{ii});
+    end
+end
+
+for ii=1:nm
+    fprintf(outp,'%d',feats(ii,1));
+    for jj=2:size(feats,2)
+       fprintf(outp,'~%f',feats(ii,jj)); 
+    end
+    fprintf(outp,'\n');
+end
+fclose(outp);
