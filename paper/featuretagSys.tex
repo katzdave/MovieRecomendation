@@ -1,0 +1,15 @@
+Choose top k movies.  Find most prevalent tags within those k movies.
+
+Popular/good movies tend to have more tags.  As such in our latent space they tend to have higher than average values across all features.
+
+TagPrevalence = w1*normalizedAverage + w2*rawAverage - w3*varPenalty
+
+Increasing w1: More emphasis on normalized tag values.  Pulls out tags which appear more prevalently in this class relative to other classes.  Tags like ``poverty'' and ``star wars'' will tend to appear if the class tends to have movies with those themes.
+
+Increasing w2: More emphasis on raw tag values.  Tags which are popular within the class but not necessarily more popular than the entire population begin to appear.  Examples: ``original''and ``oscar'' tend to appear.
+
+Decreasing w3: Penalize tags with large variance within the class.  For example if 1/3 of the movies in the class are related to poverty, then the ``poverty'' tag on these movies will tend to be high, but close to zero for the rest of the class.  With the normalized average, the class will appear highly related to poverty.  However by penalizing  tags with high variance, we can put weight agianst tags which are highly prevalent on only a subset of the top k, as we want tags realated to all of the movies.
+
+values for k, w1 and w2 we used were:...
+
+From manually looking at the top 20 movies, and prevelant tags for the top k movies, we came up with concise, human understandable class descriptions for each class.

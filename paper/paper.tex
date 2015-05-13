@@ -14,7 +14,7 @@
 \usepackage{booktabs}
 \IEEEoverridecommandlockouts
 %s\hyphenation{op-tical net-works semi-conduc-tor}
-\title{Movie Recommendations Using \\ Low-dimensional Codes}
+\title{Movie Recommendations Using \\ Low-dimensional Codes  \\ and User Specified \\ Feature Relevance}
 \author{
 \IEEEauthorblockN{Christopher Curro, David Katz, Harrizon Zhao}
 \IEEEauthorblockA{The Cooper Union\\
@@ -45,22 +45,30 @@ a complex high-dimensional feature space into a rich low-dimensional latent
 space. We aim to present an alternative approach to generating a rich low-dimensional latent space capable of producing high quality movie
 recommendations based on nearest neighbor approach where the queried sample is
 determined by user input. We work with the dataset created by Vig et al.
-\cite{vig2012tag}. This dataset provides a approximately ten thousand movies each with relevance weightings for approximately one thousand tags.
+\cite{vig2012tag}. This dataset provides a approximately ten thousand movies each with relevance weightings for approximately one thousand tags.  We labeled each of our latent features in a human understandable manner.  We also provided users with the ability to adjust both the target value and the relevance of each of these features at each query.
 
 \subsection{Autoencoders}
 \input{autoencIntro}
-\subsection{Nearest Neighbors Recomendations}
+\subsection{Nearest Neighbors Recommendations}
 \input{nnIntro}
 \section{System Description}
 
 \subsection{Autoencoder}
 \input{autoencSys}
-\subsection{Recomendations}
+\subsection{Feature Tagging}
+\input{featuretagSys}
+\subsection{Interface}
+\input{interfaceSys}
+\subsection{Recommendations}
 \input{nnSys}
 
 \section{Results}
+No real metric exists other than user engagement.
+
+We keep logs of all of the queries performed.  These logs of real user data could serve as a valuable dataset for maximizing the efficiency of an ANN index.
 
 \section{Conclusion}
+marshmellow fluff
 
 % \IEEEpeerreviewmaketitle
 
