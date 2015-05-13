@@ -45,3 +45,7 @@ features.csv
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# webserver stuff
+**/bower_components/
+**/node_modules/
