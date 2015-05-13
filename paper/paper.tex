@@ -1,0 +1,68 @@
+\documentclass[conference]{IEEEtran}
+%\usepackage{cite}
+\ifCLASSINFOpdf
+   \usepackage[pdftex]{graphicx}
+ \fi
+\usepackage[cmex10]{amsmath}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usetikzlibrary{positioning}
+\tikzstyle{block} = [rectangle, draw, 
+    text width=5.2cm, text centered, minimum height=2em]
+\tikzstyle{block2} = [rectangle, draw, 
+    text width=1.5cm, text centered, minimum height=2em]
+\tikzstyle{line} = [draw, -latex']
+\usepackage{array}
+\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{url}
+\usepackage{chngcntr}
+\counterwithin{paragraph}{subsection} 
+\IEEEoverridecommandlockouts
+%s\hyphenation{op-tical net-works semi-conduc-tor}
+\title{Movie Recommendations Using \\ Low-dimensional Codes}
+\author{
+\IEEEauthorblockN{Christopher Curro, David Katz, Harrizon Zhao}
+\IEEEauthorblockA{The Cooper Union\\
+Electrical Engineering
+}
+}
+\begin{document}
+\maketitle
+
+\begin{abstract} 
+
+We present a movie recomendation system that finds a weighted set of nearest
+neigbors to an arbitray desired movie based on user specified interests in a
+latent space learned by an autoencoder. We learn a low-dimensional
+representation to make recomendentions in from a much larger feature space
+consisting of approximately one thousand tags and their relevancies to about
+ten thousand movies. 
+
+\end{abstract}
+\section{Introduction}
+
+\subsection{Autoencoders}
+\input{autoencIntro}
+\subsection{Nearest Neighbors Recomendations}
+\input{nnIntro}
+\section{System Description}
+
+\subsection{Autoencoder}
+\input{autoencSys}
+\subsection{Recomendations}
+\input{nnSys}
+
+\section{Results}
+
+\section{Conclusion}
+
+% \IEEEpeerreviewmaketitle
+
+\raggedright
+\bibliographystyle{IEEEtran}
+\bibliography{bib}
+
+\end{document}
