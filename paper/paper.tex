@@ -1,0 +1,109 @@
+\documentclass[conference]{IEEEtran}
+\usepackage{cite}
+\usepackage{balance}
+% \usepackage{flushend}
+\ifCLASSINFOpdf
+   \usepackage[pdftex]{graphicx}
+ \fi
+\usepackage[cmex10]{amsmath}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{caption} 
+\captionsetup[table]{skip=10pt}
+\usetikzlibrary{matrix,chains,positioning,decorations.pathreplacing,arrows}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{booktabs}
+\IEEEoverridecommandlockouts
+%s\hyphenation{op-tical net-works semi-conduc-tor}
+\title{Movie Recommendations Using Low-dimensional Codes and User Specified Feature Relevance}
+\author{
+\IEEEauthorblockN{Christopher Curro, David Katz, Harrizon Zhao}
+\IEEEauthorblockA{The Cooper Union\\
+Electrical Engineering
+}
+}
+\begin{document}
+\maketitle
+\global\csname @topnum\endcsname 0
+\global\csname @botnum\endcsname 0
+\begin{abstract} 
+
+We present a movie recommendation system that finds a weighted set of nearest
+neighbors to an arbitrary desired movie based on user specified interests in a
+latent space learned by an autoencoder. We learn a low-dimensional
+representation to make recommendations in from a much larger feature space
+consisting of approximately one thousand tags and their relevancies to about
+ten thousand movies. 
+
+\end{abstract} 
+\section{Introduction} 
+
+Movie recommendation is complex task that generally involves high dimensional
+feature spaces; a common approach today is the collaborative filtering
+approach \cite{ekstrand2011collaborative,good1999combining,koren2009matrix}.
+The collaborative filtering approach is powerful because it successfully
+reduces a complex high-dimensional feature space into a rich low-dimensional
+latent space. We aim to present an alternative approach to generating a rich
+low-dimensional latent space capable of producing high quality movie
+recommendations based on a nearest neighbor approach where the queried sample
+is determined by user input. We work with the dataset created by Vig et al.
+\cite{vig2012tag}. This dataset provides approximately ten thousand movies
+with relevance weightings for approximately one thousand tags.  We labeled
+each of our latent features in a human understandable manner.  We also
+provide users with the ability to adjust both the target value and the
+relevance of each of these features at each query.
+
+\subsection{Autoencoders}
+\input{autoencIntro}
+\subsection{Nearest Neighbors Recommendations}
+\input{nnIntro}
+\section{System Description}
+
+\subsection{Autoencoder}
+\input{autoencSys}
+\subsection{Feature Tagging}
+\input{featuretagSys}
+\subsection{Interface}
+\input{interfaceSys}
+\subsection{Recommendations}
+\input{nnSys}
+
+\section{Results} \begin{figure} \centering
+\includegraphics[width=\linewidth]{error.pdf} 
+\caption{ Reconstruction error versus number of training epochs of the
+autoencoder. The reconstruction error is measured as the MSE between the
+original high-dimensional vector and the the approximate high-dimensional
+vector decoded by the decoder from the low-dimensional code. Each epoch
+consists of ten thousand example exposures to the network. This network
+converges at an MSE of about 80.}
+\label{error} 
+\end{figure}
+
+While it is difficult to quantitatively measure the quality of the
+recommendations, aside from explicit user feedback on them, we are able to
+measure the performance of the autoencoder network. In Figure \ref{error} we
+see the usual type of training curve for a neural network with the error
+decreasing and then reaching a steady bottom. Ideally this curve would get
+significantly closer to zero, but considering the number of dimensions in the
+reconstructed space compared to the reduced space, the performance of 80 MSE
+is impressive. The apparent quality of recommendations confirms the good
+performance of the autoencoder.
+
+We keep logs of all of the queries performed.  These logs of real user data could serve as a valuable dataset for maximizing the efficiency of an ANN index.
+
+\section{Conclusion} We have presented a movie recommendation system that
+operates in a low-dimensional space produced by a feature space reduction of
+99\% using an autoencoder. We have hypothesized what each of the latent
+features in the low-dimensional code represents. In the future we would like
+to crowd source an understanding of the latent variables using Amazon
+Mechanical Turk as Zhou et al. have done \cite{zhou2014object}.
+% \sloppy
+% \IEEEpeerreviewmaketitle
+% \eject
+\vfill\break
+\raggedright
+\bibliographystyle{IEEEtran}
+\bibliography{bib}
+
+\end{document}

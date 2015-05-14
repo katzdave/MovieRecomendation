@@ -1,0 +1,34 @@
+\begin{figure}
+\centering
+\input{ann.tex}
+\caption{
+A simple autoencoder with a two layer encoder/decoder pair. This autoencoder
+would code a five dimensional space into a three dimensional space. Each neuron represents a weighted sum passed through an activation function.
+}
+\label{autoenc}
+\end{figure}
+
+An autoencoder is a particular type of neural network. A neural network is a computational graph where nodes can be
+defined in the form: 
+\begin{equation}
+\mathbf{y} = f\left(W\mathbf{x} + \mathbf{b}\right)
+\label{dense}
+\end{equation}
+Where $\mathbf{x}$ is an input vector, $W$ and $b$ are parameters that define a
+linear relationship, and $f(\cdot)$ is an activation function. The activation
+function is generally a non-linear function so each node in the graph can
+perform a non-linear mapping from $\mathbf{x}$ to $\mathbf{y}$.
+
+Nodes can be connected successively to one another in a feed-forward fashion to
+create increasingly complex representations of the input data. Nodes in these
+networks are generally referred to as layers, and can be represented
+diagrammatically as in Figure \ref{autoenc}. 
+
+Figure \ref{autoenc} in particular shows an autoencoder. Unlike an ordinary
+neural network an autoencoder contains a bottleneck in the middle. It is this
+bottleneck that creates the rich dimensionality reduction power of an
+autoencoder. This bottleneck essentially splits the network into two stages:
+the encoder stage and the decoder stage. We interpret the autoencoder as
+having two stages because we optimize the learned parameters of the
+autoencoder to minimize the reconstruction error at the output of the decoder.
+By following this objective and applying other constraints, such as a sparsity constraints, rich coding schemes can be achieved at the bottleneck.

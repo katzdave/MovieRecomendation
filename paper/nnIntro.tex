@@ -1,0 +1,10 @@
+After selecting a latent feature space in order to find recommendations for a query, a recommendation engine must perform a nearest neighbors query.  The movies with the closest distance to the user's input or latent features are selected as recommendations \cite{sarwar2001item}.
+
+For multi-dimensional spaces, the only method which is guaranteed to return exact nearest neighbors is a linear search \cite{flann_pami_2014}.  This becomes unfeasible with larger datasets with many users.  For this reason, recommendation systems tend to use approximate nearest neighbors methods, as there is little consequence for recommending a set of movies which are close to the best recommendations rather than the exact best.  To do so, an index is constructed on the dataset once.  Each query applies this index will only search a small subset of the entire dataset but will still return close to the best results.
+
+Typically for relatively low dimensional spaces the Euclidean distance metric is used.  However, to handle the constraint of user specified dimension relevance we used a modified Euclidean distance metric shown in Equation \ref{eq:distmet}.  The x and y represent two movies, while v represents the user specified weight on each dimension.  Since v is normalized to have a sum of 1, when v is uniform this metric is equivalent to Euclidean distance.
+\begin{equation}
+\label{eq:distmet}
+distance(x,y,v) = \sqrt{\sum\limits_{i=1}^D ((x_i - y_i) \times v_i \times D)^2}
+\end{equation}
+
