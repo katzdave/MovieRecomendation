@@ -20,3 +20,12 @@ C:\Users\david_000\Documents\GitHub\MovieRecomendation\MovieServer\MovieServer\b
 C:\Users\david_000\Documents\GitHub\MovieRecomendation\MovieServer\MovieServer\bin\Debug\MovieServer.application
 C:\Users\david_000\Documents\GitHub\MovieRecomendation\MovieServer\MovieServer\obj\x86\Debug\MovieServer.exe.manifest
 C:\Users\david_000\Documents\GitHub\MovieRecomendation\MovieServer\MovieServer\obj\x86\Debug\MovieServer.application
+C:\Users\Senior\Documents\GitHub\MovieRecomendation\MovieServer\MovieServer\obj\x86\Debug\MovieServer.exe
+C:\Users\Senior\Documents\GitHub\MovieRecomendation\MovieServer\MovieServer\obj\x86\Debug\MovieServer.pdb
+C:\Users\Senior\Documents\GitHub\MovieRecomendation\MovieServer\MovieServer\bin\Debug\MovieServer.exe.manifest
+C:\Users\Senior\Documents\GitHub\MovieRecomendation\MovieServer\MovieServer\bin\Debug\MovieServer.application
+C:\Users\Senior\Documents\GitHub\MovieRecomendation\MovieServer\MovieServer\bin\Debug\MovieServer.exe
+C:\Users\Senior\Documents\GitHub\MovieRecomendation\MovieServer\MovieServer\bin\Debug\MovieServer.pdb
+C:\Users\Senior\Documents\GitHub\MovieRecomendation\MovieServer\MovieServer\obj\x86\Debug\MovieServer.csprojResolveAssemblyReference.cache
+C:\Users\Senior\Documents\GitHub\MovieRecomendation\MovieServer\MovieServer\obj\x86\Debug\MovieServer.exe.manifest
+C:\Users\Senior\Documents\GitHub\MovieRecomendation\MovieServer\MovieServer\obj\x86\Debug\MovieServer.application

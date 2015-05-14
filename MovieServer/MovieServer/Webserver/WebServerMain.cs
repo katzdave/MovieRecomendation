@@ -21,7 +21,8 @@ namespace MovieServer
         {
             this.ds = ds;
             //ws = new WebServer(SendResponse, "http://169.254.231.73:11111/test/");
-            ws = new WebServer(SendResponse, "http://localhost:11111/test/");
+            //ws = new WebServer(SendResponse, "http://localhost:11111/test/");
+            ws = new WebServer(new string[] { "http://199.98.20.55:11111/test/", "http://localhost:11111/test/" }, SendResponse);
         }
 
         public void Run()
@@ -53,7 +54,7 @@ namespace MovieServer
                 var features = request.QueryString["features"].Split(',');
                 var featuresNorm = new List<double>();
                 foreach (var feature in features) {
-                    featuresNorm.Add(Double.Parse(feature));
+                    featuresNorm.Add(Double.Parse(feature)/100);
                 }
 
                 var weights = request.QueryString["weights"].Split(',');
@@ -63,10 +64,13 @@ namespace MovieServer
                 {
                     weightSum += Double.Parse(weight);
                 }
-                if (weightSum == 0) return null;
+                //if (weightSum == 0) return null;
                 foreach (var weight in weights)
                 {
-                    weightsNorm.Add(Double.Parse(weight) / weightSum);
+                    if (weightSum != 0)
+                        weightsNorm.Add(Double.Parse(weight) / weightSum);
+                    else
+                        weightsNorm.Add(1.0 / weights.Count());
                 }
 
                 var knn = ds.GetKnn(nresults, featuresNorm, weightsNorm);
