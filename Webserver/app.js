@@ -9,9 +9,9 @@ var request = require('request');
 var fs = require('fs');
 config.configure(app);
 
-//var serverpath = 'http://localhost:11111/test';
+var serverpath = 'http://localhost:11111/test';
 //var serverpath = 'http://169.254.231.73:11111/test';
-var serverpath = 'http://senior15.ee.cooper.edu:11111/test';
+//var serverpath = 'http://eeg.ee.cooper.edu:11111/test';
 var serverpathnofeat = serverpath + "?nofeat=1";
 
 var date = new Date();

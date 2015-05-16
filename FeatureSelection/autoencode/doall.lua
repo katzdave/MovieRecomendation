@@ -35,7 +35,7 @@ nEpochs = 1e3
 errTrail = torch.Tensor(nEpochs)
 
 for i = 1,400 do
-	dofile('train.lua')
+    dofile('train.lua')
 end
 
 dofile('writeCSV.lua')

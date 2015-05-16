@@ -21,8 +21,8 @@ namespace MovieServer
         {
             this.ds = ds;
             //ws = new WebServer(SendResponse, "http://169.254.231.73:11111/test/");
-            //ws = new WebServer(SendResponse, "http://localhost:11111/test/");
-            ws = new WebServer(new string[] { "http://199.98.20.55:11111/test/", "http://localhost:11111/test/" }, SendResponse);
+            ws = new WebServer(SendResponse, "http://localhost:11111/test/");
+            //ws = new WebServer(new string[] { "http://199.98.20.55:11111/test/", "http://localhost:11111/test/" }, SendResponse);
         }
 
         public void Run()

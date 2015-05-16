@@ -19,7 +19,8 @@ local feval = function(x)
 end
 
 sgdconf = {
-	learningRate = 1e-3,
+	-- learningRate = 1e-3,
+	learningRate = 0.5e-3,
 	learningRateDecay = 0,
     momentum = 0.9
 }
@@ -32,10 +33,13 @@ _, err = optim.nag(feval, parameters, sgdconf)
 
 errTrail[epoch] = err[1]
 
+gnuplot.pdffigure('test.pdf')
 gnuplot.grid(true)
+gnuplot.axis({0,600,50,500})
 gnuplot.title('Reconstruction Error')
 gnuplot.xlabel('Epoch')
 gnuplot.ylabel('MSE')
 gnuplot.plot({errTrail[{{1,epoch}}],'-'})
+gnuplot.plotflush()
 
 epoch = epoch + 1
