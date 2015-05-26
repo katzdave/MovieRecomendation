@@ -79,8 +79,7 @@
         </div>
         <div class="shifted" masonry>
             <div class="masonry-brick" ng-repeat="movie in movies">
-                <div class="masonry-brick-border" ng-click="gotoImdb(movie.imdbID)">
-                    <div class="thumbnail clickable">
+                    <div class="thumbnail">
                         <div class="caption">
                             <div class="text-center">
                                 <img ng-src="{{movie.Poster}}" height="300px" width="200px" onerror='this.style.display = "none"'/>
@@ -89,7 +88,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
         </div>
     </section>

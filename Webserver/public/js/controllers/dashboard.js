@@ -68,9 +68,9 @@ function dbCtrl($scope, $rootScope, $http, $window) {
     });
   };
 
-  $scope.gotoImdb = function(imdbID) {
-    $window.open('http://www.imdb.com/title/'+imdbID);
-  };
+  //$scope.gotoImdb = function(imdbID) {
+  //  $window.open('http://www.imdb.com/title/'+imdbID);
+  //};
 
   $scope.recommendMovies = function() {
     var postData = $scope.features;
