@@ -1,6 +1,10 @@
 # MovieRecs
 Recommend movies and stuff
 
+Poster here: https://github.com/ccurro/eoysPosters/raw/master/curroMovies/curroMovies.pdf
+Paper here: https://github.com/katzdave/MovieRecommendation/raw/master/paper/paper.pdf
+
+
 Current dependencies:
 http://json.codeplex.com/
 
